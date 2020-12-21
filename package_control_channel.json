@@ -1,0 +1,26 @@
+{
+	"schema_version": "3.0.0",
+	"packages":
+	[
+		{
+			"name": "print",
+			"author": "jrappen",
+			"details": "https://github.com/jrappen/sublime-print",
+			"donate": "https://paypal.me/jrappen",
+			"labels":
+			[
+				"print-preview",
+				"html-preview",
+				"mini-html-preview",
+				"side-by-side"
+			],
+			"releases":
+			[
+				{
+					"sublime_text": ">=4074",
+					"tags": true
+				}
+			]
+		}
+	]
+}

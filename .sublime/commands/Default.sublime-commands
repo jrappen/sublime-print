@@ -1,0 +1,58 @@
+[
+    {
+        "caption": "print: Documentation: English",
+        "command": "print_open_docs",
+        "args":
+        {
+            "resource_path": "docs/en/README.md"
+        }
+    },
+    {
+        "caption": "print: Documentation: German (Deutsch)",
+        "command": "print_open_docs",
+        "args":
+        {
+            "resource_path": "docs/de/README.md"
+        }
+    },
+    {
+        "caption": "print: Changelog",
+        "command": "print_open_docs",
+        "args":
+        {
+            "resource_path": "CHANGELOG.md"
+        }
+    },
+    {
+        "caption": "print: Issues",
+        "command": "open_url",
+        "args":
+        {
+            "url": "https://github.com/jrappen/sublime-print/issues"
+        }
+    },
+    {
+        "caption": "print: Donations",
+        "command": "open_url",
+        "args":
+        {
+            "url": "https://www.paypal.me/jrappen"
+        }
+    },
+    {
+        "caption": "Print: Preview Markdown in Browser",
+        "command": "print_preview_markdown_in_browser"
+    },
+    {
+        "caption": "Print: Preview Markdown in Sublime as mini-HTML (read-only)",
+        "command": "print_preview_markdown_via_html_sheet"
+    },
+    {
+        "caption": "Print: Preview Code in Browser",
+        "command": "print_preview_code_in_browser"
+    },
+    {
+        "caption": "Print: Copy highlighted code as HTML snippet to clipboard",
+        "command": "print_copy_code_to_clipboard"
+    }
+]
