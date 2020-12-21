@@ -1,8 +1,8 @@
 [![License](https://img.shields.io/github/license/jrappen/sublime-print.svg?style=flat-square)](https://github.com/jrappen/sublime-print/blob/master/LICENSE)
 [![Required ST Build](https://img.shields.io/badge/ST-4074+-orange.svg?style=flat-square&logo=sublime-text)](https://www.sublimetext.com)
 [![Latest tag](https://img.shields.io/github/tag/jrappen/sublime-print.svg?style=flat-square&logo=github)](https://github.com/jrappen/sublime-print/tags)
-[![Donate via PayPal](https://img.shields.io/badge/paypal.me-jrappen-009cde.svg?style=flat-square&logo=paypal)](https://www.paypal.me/jrappen)
 [![SublimeHQ Discord](https://img.shields.io/discord/280102180189634562?label=SublimeHQ%20Discord&logo=discord&style=flat-square)](https://discord.gg/D43Pecu)
+[![Donate via PayPal](https://img.shields.io/badge/paypal.me-jrappen-009cde.svg?style=flat-square&logo=paypal)](https://www.paypal.me/jrappen)
 
 # `print` plug-in for [Sublime Text](https://www.sublimetext.com)
 

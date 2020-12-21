@@ -10,10 +10,15 @@ from .window_commands import *
 PKG_NAME = __package__.split('.')[0]
 
 
+def is_installed():
+    pkgctrl_settings = sublime.load_settings('Package Control.sublime-settings')
+    return PKG_NAME in set(pkgctrl_settings.get('installed_packages', []))
+
+
 def plugin_loaded():
     try:
         from package_control import events
-        if events.install(PKG_NAME):
+        if events.install(PKG_NAME) and not is_installed():
             sublime.active_window().run_command(
                 'print_open_docs',
                 {
@@ -28,4 +33,4 @@ def plugin_loaded():
                 }
             )
     except Exception as e:
-        pass
+        print('{}: Error: {}'.format(PKG_NAME, e))
