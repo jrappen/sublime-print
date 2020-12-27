@@ -33,4 +33,4 @@ def plugin_loaded():
                 }
             )
     except Exception as e:
-        print('{}: Error: {}'.format(PKG_NAME, e))
+        print('{}: Exception: {}'.format(PKG_NAME, e))

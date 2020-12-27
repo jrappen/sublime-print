@@ -1,5 +1,6 @@
-# Thank you for upgrading `print` to `v2.1.0`
+# Thank you for upgrading `print` to `v2.2.0`
 
-> 2020-12-21
+> 2020-12-27
 
-* **Package Control:** do not show install message when installing as missing package
+* **Python:** add frontmatter settings to mdpopups output
+* **Git:** fix gitattributes

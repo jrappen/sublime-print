@@ -43,6 +43,18 @@ li ul {
     margin: 2px 0 4px;
 }
 '''
+FRONTMATTER = {
+    "allow_code_wrap": True,
+    "markdown_extensions": [
+        "markdown.extensions.admonition",
+        "markdown.extensions.attr_list",
+        "pymdownx.emoji",
+        "pymdownx.progressbar",
+        "pymdownx.saneheaders",
+        {"pymdownx.smartsymbols": {"ordinal_numbers": False}},
+        "pymdownx.tasklist"
+    ]
+}
 PKG_NAME = __package__.split('.')[0]
 
 
@@ -56,7 +68,7 @@ class PrintOpenDocs(sublime_plugin.WindowCommand):
             preview_sheet = mdpopups.new_html_sheet(
                 window=w,
                 name='{}/{}'.format(PKG_NAME, resource_path),
-                contents=sublime.load_resource('Packages/{}/{}'.format(PKG_NAME, resource_path)),
+                contents=mdpopups.format_frontmatter(FRONTMATTER) + sublime.load_resource('Packages/{}/{}'.format(PKG_NAME, resource_path)),
                 md=True,
                 css='{}'.format(CSS)
             )
@@ -197,7 +209,7 @@ class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
             preview_sheet = mdpopups.new_html_sheet(
                 window=w,
                 name='[print] mini-HTML Preview (read-only)',
-                contents=v.substr(sublime.Region(0, v.size())),
+                contents=mdpopups.format_frontmatter(FRONTMATTER) + v.substr(sublime.Region(0, v.size())),
                 md=True,
                 css='{}'.format(CSS)
             )
