@@ -28,11 +28,13 @@
 
 ## Voraussetzungen
 
-print ist als Erweiterung für die **neusten Build** von Sublime Text gedacht und erfordert im Moment **`Build 4074`** oder neuer.
+!!! panel-warning "Voraussetzungen"
 
-* Lade [Sublime Text](https://www.sublimetext.com) herunter
-* Installiere Package Control über den Eintrag `Tools > Install Package Control` im Menü
-    * Schließe und öffne Sublime Text nach der Installation von Package Control.
+    `print` ist als Erweiterung für den **neusten Build** von Sublime Text gedacht und erfordert im Moment **`Build 4074`** oder neuer.
+
+    * Lade [Sublime Text](https://www.sublimetext.com) herunter
+    * Installiere Package Control über den Eintrag `Tools > Install Package Control` im Menü
+        * Schließe und öffne Sublime Text nach der Installation von Package Control.
 
 ## Installation
 
@@ -60,7 +62,7 @@ Die Verwendung von **Package Control** wird vorausgesetzt, da es deine Erweiteru
 
 ## Verwendung
 
-print generiert eine Vorschau für das Drucken von Sublime Text Code.
+`print` generiert eine Vorschau für das Drucken von Sublime Text Code.
 
 Du kannst:
 

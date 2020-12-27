@@ -1,5 +1,11 @@
 # Changelog `print`
 
+## 2.2.1
+
+> 2020-12-27
+
+* **Documentation:** enhance readability
+
 ## 2.2.0
 
 > 2020-12-27

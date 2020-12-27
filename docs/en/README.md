@@ -28,13 +28,15 @@
 
 ## Requirements
 
-print targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4074`** or later.
+!!! panel-warning "Requirements"
 
-* Download [Sublime Text](https://www.sublimetext.com)
-* Install Package Control via `Tools > Install Package Control` via the menu
-    * Close and reopen Sublime Text after having installed Package Control.
-    * `Package Control` is required, as it installs the dependencies for this package.
-      They are listed in [`./dependencies.json`](dependencies.json)
+    `print` targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4074`** or later.
+
+    * Download [Sublime Text](https://www.sublimetext.com)
+    * Install Package Control via `Tools > Install Package Control` via the menu
+        * Close and reopen Sublime Text after having installed Package Control.
+        * `Package Control` is required, as it installs the dependencies for this package.
+          They are listed in [`./dependencies.json`](dependencies.json)
 
 ## Installation
 
@@ -62,7 +64,7 @@ Using **Package Control** is required,as it keeps your packages (with their depe
 
 ## Usage
 
-print generates a preview for printing your Sublime Text code.
+`print` generates a preview for printing your Sublime Text code.
 
 You can:
 

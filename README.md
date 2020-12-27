@@ -34,7 +34,7 @@
 
 ## Requirements
 
-print targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4074`** or later.
+`print` targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4074`** or later.
 
 * Download [Sublime Text](https://www.sublimetext.com)
 * Install Package Control via `Tools > Install Package Control` via the menu

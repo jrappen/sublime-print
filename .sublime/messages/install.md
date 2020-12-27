@@ -13,9 +13,9 @@ Look for `Print: Preview ...` in:
 * the command palette
 * or the context menu (right-click)
 
-## Known issues
+!!! panel-info "Known issues"
 
-* the Markdown Preview is limited to
-  [mini-HTML](https://www.sublimetext.com/docs/minihtml.html)
-    * HTML comments break the preview (at that point)
-* mdpopups uses PythonMarkdown, which uses 4 spaces for indentation
+    * the Markdown Preview is limited to
+      [mini-HTML](https://www.sublimetext.com/docs/minihtml.html)
+        * HTML comments break the preview (at that point)
+    * mdpopups uses PythonMarkdown, which uses 4 spaces for indentation
