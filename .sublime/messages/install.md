@@ -13,6 +13,14 @@ Look for `Print: Preview ...` in:
 * the command palette
 * or the context menu (right-click)
 
+## Requirements
+
+!!! panel-warning "Requirements"
+
+    This package currently requires `Sublime Text Build 4074` or later.
+
+## Known issues
+
 !!! panel-info "Known issues"
 
     * the Markdown Preview is limited to

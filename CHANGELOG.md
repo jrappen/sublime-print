@@ -1,5 +1,11 @@
 # Changelog `print`
 
+## 2.2.2
+
+> 2020-12-28
+
+* **Python:** fixed opening docs after PkgCtrl events
+
 ## 2.2.1
 
 > 2020-12-27
