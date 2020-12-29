@@ -1,5 +1,5 @@
-# Thank you for upgrading `print` to `v2.2.2`
+# Thank you for upgrading `print` to `v2.2.3`
 
-> 2020-12-28
+> 2020-12-29
 
-* **Python:** fixed opening docs after PkgCtrl events
+* **Python:** move some code snippets

@@ -1,5 +1,11 @@
 # Changelog `print`
 
+## 2.2.3
+
+> 2020-12-29
+
+* **Python:** move some code snippets
+
 ## 2.2.2
 
 > 2020-12-28
