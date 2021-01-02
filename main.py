@@ -28,7 +28,7 @@ from .src import *
 
 
 def plugin_loaded():
-    src.window_commands.plugin_loaded()
+    .src.window_commands.plugin_loaded()
 
 # def plugin_unloaded():
-    # src.window_commands.plugin_unloaded()
+    # .src.window_commands.plugin_unloaded()
