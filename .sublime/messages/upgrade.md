@@ -1,5 +1,5 @@
-# Thank you for upgrading `print` to `v2.2.3`
+# Thank you for upgrading `print` to `v2.2.4`
 
-> 2020-12-29
+> 2021-01-02
 
-* **Python:** move some code snippets
+* **Python:** Fix loading and unloading package

@@ -70,15 +70,14 @@ def is_installed():
 def plugin_loaded():
     try:
         from package_control import events
+    except ImportError:
+        pass
+    else:
         w = sublime.active_window()
         if events.install(PKG_NAME) and not is_installed():
-            print('{}: Opening install message.'.format(PKG_NAME))
             w.run_command('print_open_docs', {'resource_path': '.sublime/messages/install.md'})
         elif events.post_upgrade(PKG_NAME):
-            print('{}: Opening upgrade message.'.format(PKG_NAME))
             w.run_command('print_open_docs', {'resource_path': '.sublime/messages/upgrade.md'})
-    except Exception as e:
-        print('{}: Exception: {}'.format(PKG_NAME, e))
 
 
 # def plugin_unloaded():
