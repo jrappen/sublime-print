@@ -1,39 +1,11 @@
 # Changelog `print`
 
-## 2.2.6
+## 2.2.7
 
 > 2021-01-02
 
 * **Python:** Fix loading and unloading package
-
-## 2.2.5
-
-> 2021-01-02
-
-* **Python:** Fix typo
-
-## 2.2.4
-
-> 2021-01-02
-
-* **Python:** Fix loading and unloading package
-
-## 2.2.3
-
-> 2020-12-29
-
 * **Python:** move some code snippets
-
-## 2.2.2
-
-> 2020-12-28
-
-* **Python:** fixed opening docs after PkgCtrl events
-
-## 2.2.1
-
-> 2020-12-27
-
 * **Documentation:** enhance readability
 
 ## 2.2.0

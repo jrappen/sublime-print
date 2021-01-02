@@ -1,4 +1,4 @@
-# Thank you for upgrading `print` to `v2.2.6`
+# Thank you for upgrading `print` to `v2.2.7`
 
 > 2021-01-02
 
