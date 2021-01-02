@@ -1,5 +1,11 @@
 # Changelog `print`
 
+## 2.2.6
+
+> 2021-01-02
+
+* **Python:** Fix loading and unloading package
+
 ## 2.2.5
 
 > 2021-01-02
