@@ -1,5 +1,5 @@
-# Thank you for upgrading `print` to `v2.2.7`
+# Thank you for upgrading `print` to `v2.2.8`
 
-> 2021-01-02
+> 2021-01-04
 
-* **Python:** Fix loading and unloading package
+* **Python:** minor changes to `./main.py`

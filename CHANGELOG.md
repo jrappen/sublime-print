@@ -1,27 +1,27 @@
 # Changelog `print`
 
-## 2.2.7
+## [2.2.8](https://github.com/jrappen/sublime-print/compare/2.2.0...2.2.8)
 
-> 2021-01-02
+> 2021-01-04
 
 * **Python:** Fix loading and unloading package
 * **Python:** move some code snippets
 * **Documentation:** enhance readability
 
-## 2.2.0
+## [2.2.0](https://github.com/jrappen/sublime-print/compare/2.1.0...2.2.0)
 
 > 2020-12-27
 
 * **Python:** add frontmatter settings to mdpopups output
 * **Git:** fix gitattributes
 
-## 2.1.0
+## [2.1.0](https://github.com/jrappen/sublime-print/compare/2.0.0...2.1.0)
 
 > 2020-12-21
 
 * **Package Control:** do not show install message when installing as missing package
 
-## 2.0.0
+## [2.0.0](https://github.com/jrappen/sublime-print/compare/1.0.0...2.0.0)
 
 > 2020-12-21
 
