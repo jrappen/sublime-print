@@ -24,7 +24,7 @@
         }
     },
     {
-        "caption": "print: Issues",
+        "caption": "print: Report issue",
         "command": "open_url",
         "args":
         {
@@ -32,7 +32,7 @@
         }
     },
     {
-        "caption": "print: Donations",
+        "caption": "print: Donate to support development",
         "command": "open_url",
         "args":
         {
@@ -40,19 +40,19 @@
         }
     },
     {
-        "caption": "Print: Preview Markdown in Browser",
+        "caption": "print: md2html: Preview in Browser",
         "command": "print_preview_markdown_in_browser"
     },
     {
-        "caption": "Print: Preview Markdown in Sublime as mini-HTML (read-only)",
+        "caption": "print: md2html: Preview in Sublime (read-only mini-HTML)",
         "command": "print_preview_markdown_via_html_sheet"
     },
     {
-        "caption": "Print: Preview Code in Browser",
+        "caption": "print: code: Preview in Browser",
         "command": "print_preview_code_in_browser"
     },
     {
-        "caption": "Print: Copy highlighted code as HTML snippet to clipboard",
+        "caption": "print: code: Copy to clipboard (code-highlighted mini-HTML snippet)",
         "command": "print_copy_code_to_clipboard"
     }
 ]

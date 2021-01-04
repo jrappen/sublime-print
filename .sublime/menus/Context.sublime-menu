@@ -1,29 +1,22 @@
 [
     { "caption": "-" },
     {
-        "caption": "Print: md2html",
-        "children":
-        [
+        "caption": "print",
+        "children": [
             {
-                "caption": "Preview in Browser",
+                "caption": "md2html: Preview in Browser",
                 "command": "print_preview_markdown_in_browser"
             },
             {
-                "caption": "Preview in Sublime [read-only]",
+                "caption": "md2html: Preview in Sublime (read-only mini-HTML)",
                 "command": "print_preview_markdown_via_html_sheet"
-            }
-        ]
-    },
-    {
-        "caption": "Print: Code",
-        "children":
-        [
+            },
             {
-                "caption": "Preview in Browser",
+                "caption": "code: Preview in Browser",
                 "command": "print_preview_code_in_browser"
             },
             {
-                "caption": "Copy highlighted code as HTML snippet to clipboard",
+                "caption": "code: Copy to clipboard (code-highlighted mini-HTML snippet)",
                 "command": "print_copy_code_to_clipboard"
             }
         ]

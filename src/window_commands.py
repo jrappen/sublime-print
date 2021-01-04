@@ -74,7 +74,7 @@ class PrintOpenDocs(sublime_plugin.WindowCommand):
                 css='{}'.format(CSS)
             )
         except Exception as e:
-            print('print: Exception: {}'.format(e))
+            print('{}: Exception: {}'.format(PKG_NAME, e))
 
     # def is_enabled(self): return bool
 
@@ -102,7 +102,7 @@ class PrintPreviewCodeInBrowser(sublime_plugin.WindowCommand):
                 src=v.substr(sublime.Region(0, v.size())),
                 language=l
             )
-            p = os.path.join(sublime.packages_path(), 'User', 'Print Preview.cache', 'index.html')
+            p = os.path.join(sublime.cache_path(), PKG_NAME, 'index.html')
             os.makedirs(p[:p.rindex(os.path.sep)], exist_ok=True)
             with open(p, mode='w', newline='\n') as f:
                 f.write(md_preview)
@@ -110,7 +110,7 @@ class PrintPreviewCodeInBrowser(sublime_plugin.WindowCommand):
             import pathlib
             w.run_command('open_url', { 'url': pathlib.Path(p).as_uri() })
         except Exception as e:
-            print('Print: Exception: {}'.format(e))
+            print('{}: Exception: {}'.format(PKG_NAME, e))
 
     # def is_enabled(self): return bool
 
@@ -142,7 +142,7 @@ class PrintCopyCodeToClipboard(sublime_plugin.WindowCommand):
             )
             sublime.set_clipboard(md_preview)
         except Exception as e:
-            print('Print: Exception: {}'.format(e))
+            print('{}: Exception: {}'.format(PKG_NAME, e))
 
     # def is_enabled(self): return bool
 
@@ -172,7 +172,7 @@ class PrintPreviewMarkdownInBrowser(sublime_plugin.WindowCommand):
                 template_vars=None,
                 template_env_options=None
             )
-            p = os.path.join(sublime.packages_path(), 'User', 'Print Preview.cache', 'index.html')
+            p = os.path.join(sublime.cache_path(), PKG_NAME, 'index.html')
             os.makedirs(p[:p.rindex(os.path.sep)], exist_ok=True)
             with open(p, mode='w', newline='\n') as f:
                 f.write(md_preview)
@@ -180,7 +180,7 @@ class PrintPreviewMarkdownInBrowser(sublime_plugin.WindowCommand):
             import pathlib
             w.run_command('open_url', { 'url': pathlib.Path(p).as_uri() })
         except Exception as e:
-            print('Print: Exception: {}'.format(e))
+            print('{}: Exception: {}'.format(PKG_NAME, e))
 
     # def is_enabled(self): return bool
 
@@ -209,14 +209,14 @@ class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
             import mdpopups
             preview_sheet = mdpopups.new_html_sheet(
                 window=w,
-                name='[print] mini-HTML Preview (read-only)',
+                name='[print] << PREVIEW >> (read-only)',
                 contents=mdpopups.format_frontmatter(FRONTMATTER) + v.substr(sublime.Region(0, v.size())),
                 md=True,
                 css='{}'.format(CSS)
             )
             # w.run_command('new_pane')
         except Exception as e:
-            print('Print: Exception: {}'.format(e))
+            print('{}: Exception: {}'.format(PKG_NAME, e))
 
     # def is_enabled(self): return bool
 

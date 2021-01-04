@@ -1,9 +1,11 @@
 # Changelog `print`
 
-## [2.2.8](https://github.com/jrappen/sublime-print/compare/2.2.0...2.2.8)
+## [2.2.9](https://github.com/jrappen/sublime-print/compare/2.2.0...2.2.9)
 
 > 2021-01-04
 
+* **Python:** Move cache to package's `sublime.cache_path()` subdir
+* **Commands & Menus:** Update captions
 * **Python:** Fix loading and unloading package
 * **Python:** move some code snippets
 * **Documentation:** enhance readability

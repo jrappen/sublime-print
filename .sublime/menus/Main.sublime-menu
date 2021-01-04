@@ -20,30 +20,24 @@
                                 }
                             },
                             {
-                                "caption": "Documentation",
-                                "children":
-                                [
-                                    {
-                                        "caption": "English",
-                                        "command": "print_open_docs",
-                                        "args":
-                                        {
-                                            "resource_path": "docs/en/README.md"
-                                        }
-                                    },
-                                    {
-                                        "caption": "German (Deutsch)",
-                                        "command": "print_open_docs",
-                                        "args":
-                                        {
-                                            "resource_path": "docs/de/README.md"
-                                        }
-                                    }
-                                ]
+                                "caption": "Documentation: English",
+                                "command": "print_open_docs",
+                                "args":
+                                {
+                                    "resource_path": "docs/en/README.md"
+                                }
+                            },
+                            {
+                                "caption": "Documentation: German (Deutsch)",
+                                "command": "print_open_docs",
+                                "args":
+                                {
+                                    "resource_path": "docs/de/README.md"
+                                }
                             },
                             { "caption": "-" },
                             {
-                                "caption": "Issues",
+                                "caption": "Report issue",
                                 "command": "open_url",
                                 "args":
                                 {
@@ -52,7 +46,7 @@
                             },
                             { "caption": "-" },
                             {
-                                "caption": "Donations",
+                                "caption": "Donate to support development",
                                 "command": "open_url",
                                 "args":
                                 {
