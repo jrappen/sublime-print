@@ -1,6 +1,5 @@
-# Thank you for upgrading `print` to `v2.2.9`
+# Thank you for upgrading `print` to `v2.2.10`
 
-> 2021-01-04
+> 2021-11-08
 
-* **Python:** Move cache to package's `sublime.cache_path()` subdir
-* **Commands & Menus:** Update captions
+* **Python:** fixed CSS for dark mode

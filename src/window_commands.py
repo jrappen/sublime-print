@@ -10,23 +10,33 @@ import os
 
 CSS = '''
 html {
+    background-color: var(--background);
     margin: 16px;
 }
 body {
+    color: var(--foreground);
     font-family: "Open Sans", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
     line-height: 1.6;
 }
 h1 {
+    color: color(var(--foreground) l(- 10%));
     font-size: 2.0rem;
     margin: 0.7rem 0 0 0;
 }
+html.dark h1 {
+    color: color(var(--foreground) l(+ 10%));
+}
 h2 {
+    color: color(var(--foreground) a(0.9));
     font-size: 1.4rem;
     margin: 1rem 0 0.4rem 0;
 }
 h3 {
     font-size: 1.2rem;
     margin: 1rem 0 0.1rem 0;
+}
+a {
+    color: var(--bluish);
 }
 code {
     font-size: 0.9rem;
@@ -59,14 +69,21 @@ FRONTMATTER = {
 PKG_NAME = __package__.split('.')[0]
 
 
+def is_mdpopups_installed():
+    try:
+        import mdpopups
+        return True
+    except Exception:
+        return False
+
+
 class PrintOpenDocs(sublime_plugin.WindowCommand):
 
     def run(self, resource_path='docs/en/README.md'):
         try:
             w = self.window
-            v = w.active_view()
             import mdpopups
-            preview_sheet = mdpopups.new_html_sheet(
+            mdpopups.new_html_sheet(
                 window=w,
                 name='{}/{}'.format(PKG_NAME, resource_path),
                 contents=mdpopups.format_frontmatter(FRONTMATTER) + sublime.load_resource('Packages/{}/{}'.format(PKG_NAME, resource_path)),
@@ -79,11 +96,7 @@ class PrintOpenDocs(sublime_plugin.WindowCommand):
     # def is_enabled(self): return bool
 
     def is_visible(self):
-        try:
-            import mdpopups
-            return True
-        except Exception as e:
-            return False
+        return is_mdpopups_installed()
 
     # def description(self): return str
     # def input(self, args): return CommandInputHandler or None
@@ -115,11 +128,7 @@ class PrintPreviewCodeInBrowser(sublime_plugin.WindowCommand):
     # def is_enabled(self): return bool
 
     def is_visible(self):
-        try:
-            import mdpopups
-            return True
-        except Exception as e:
-            return False
+        return is_mdpopups_installed()
 
     # def description(self): return str
     # def input(self, args): return CommandInputHandler or None
@@ -147,11 +156,7 @@ class PrintCopyCodeToClipboard(sublime_plugin.WindowCommand):
     # def is_enabled(self): return bool
 
     def is_visible(self):
-        try:
-            import mdpopups
-            return True
-        except Exception as e:
-            return False
+        return is_mdpopups_installed()
 
     # def description(self): return str
     # def input(self, args): return CommandInputHandler or None
@@ -191,7 +196,7 @@ class PrintPreviewMarkdownInBrowser(sublime_plugin.WindowCommand):
                 return False
             import mdpopups
             return self.window.active_view().settings().get('syntax').startswith('Packages/Markdown/')
-        except Exception as e:
+        except Exception:
             return False
 
     # def description(self): return str
@@ -207,7 +212,7 @@ class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
             if not v.settings().get('syntax').startswith('Packages/Markdown/'):
                 return
             import mdpopups
-            preview_sheet = mdpopups.new_html_sheet(
+            mdpopups.new_html_sheet(
                 window=w,
                 name='[print] << PREVIEW >> (read-only)',
                 contents=mdpopups.format_frontmatter(FRONTMATTER) + v.substr(sublime.Region(0, v.size())),
@@ -227,7 +232,7 @@ class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
                 return False
             import mdpopups
             return self.window.active_view().settings().get('syntax').startswith('Packages/Markdown/')
-        except Exception as e:
+        except Exception:
             return False
 
     # def description(self): return str

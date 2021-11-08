@@ -15,7 +15,7 @@ def is_installed():
     try:
         pkgctrl_settings = sublime.load_settings('Package Control.sublime-settings')
         return PKG_NAME in set(pkgctrl_settings.get('installed_packages', []))
-    except Exception as e:
+    except Exception:
         return False
 
 

@@ -12,32 +12,39 @@
                         "children":
                         [
                             {
-                                "caption": "Changelog",
-                                "command": "print_open_docs",
-                                "args":
-                                {
-                                    "resource_path": "CHANGELOG.md"
-                                }
-                            },
-                            {
-                                "caption": "Documentation: English",
-                                "command": "print_open_docs",
-                                "args":
-                                {
-                                    "resource_path": "docs/en/README.md"
-                                }
-                            },
-                            {
-                                "caption": "Documentation: German (Deutsch)",
-                                "command": "print_open_docs",
-                                "args":
-                                {
-                                    "resource_path": "docs/de/README.md"
-                                }
+                                "caption": "Documentation",
+                                "children":
+                                [
+                                    {
+                                        "caption": "English",
+                                        "command": "print_open_docs",
+                                        "args":
+                                        {
+                                            "resource_path": "docs/en/README.md"
+                                        }
+                                    },
+                                    {
+                                        "caption": "German (Deutsch)",
+                                        "command": "print_open_docs",
+                                        "args":
+                                        {
+                                            "resource_path": "docs/de/README.md"
+                                        }
+                                    },
+                                    { "caption": "-" },
+                                    {
+                                        "caption": "Changelog",
+                                        "command": "print_open_docs",
+                                        "args":
+                                        {
+                                            "resource_path": "CHANGELOG.md"
+                                        }
+                                    }
+                                ]
                             },
                             { "caption": "-" },
                             {
-                                "caption": "Report issue",
+                                "caption": "Report an issue",
                                 "command": "open_url",
                                 "args":
                                 {

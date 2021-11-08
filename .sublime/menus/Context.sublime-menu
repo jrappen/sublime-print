@@ -4,20 +4,32 @@
         "caption": "print",
         "children": [
             {
-                "caption": "md2html: Preview in Browser",
-                "command": "print_preview_markdown_in_browser"
+                "caption": "md2html Preview",
+                "children":
+                [
+                    {
+                        "caption": "... in Browser",
+                        "command": "print_preview_markdown_in_browser"
+                    },
+                    {
+                        "caption": "... in Sublime (read-only mini-HTML)",
+                        "command": "print_preview_markdown_via_html_sheet"
+                    }
+                ]
             },
             {
-                "caption": "md2html: Preview in Sublime (read-only mini-HTML)",
-                "command": "print_preview_markdown_via_html_sheet"
-            },
-            {
-                "caption": "code: Preview in Browser",
-                "command": "print_preview_code_in_browser"
-            },
-            {
-                "caption": "code: Copy to clipboard (code-highlighted mini-HTML snippet)",
-                "command": "print_copy_code_to_clipboard"
+                "caption": "Code Preview",
+                "children":
+                [
+                    {
+                        "caption": "... in Browser",
+                        "command": "print_preview_code_in_browser"
+                    },
+                    {
+                        "caption": "Copy ... to clipboard (code-highlighted mini-HTML snippet)",
+                        "command": "print_copy_code_to_clipboard"
+                    }
+                ]
             }
         ]
     },

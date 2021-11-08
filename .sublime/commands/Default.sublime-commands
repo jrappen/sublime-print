@@ -24,7 +24,7 @@
         }
     },
     {
-        "caption": "print: Report issue",
+        "caption": "print: Report an issue",
         "command": "open_url",
         "args":
         {
