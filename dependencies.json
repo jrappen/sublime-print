@@ -1,14 +1,8 @@
 {
     "*": {
-        "*": [
-            "markupsafe",
+        ">=3124": [
             "mdpopups",
-            "pathlib",
-            "pygments",
-            "pymdownx",
-            "python-jinja2",
-            "python-markdown",
-            "pyyaml"
+            "pathlib"
         ]
     }
 }

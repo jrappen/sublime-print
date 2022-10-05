@@ -108,6 +108,8 @@ class PrintPreviewCodeInBrowser(sublime_plugin.WindowCommand):
         try:
             w = self.window
             v = w.active_view()
+            if v is None:
+                return
             import mdpopups
             l = mdpopups.get_language_from_view(v)
             md_preview = mdpopups.syntax_highlight(
@@ -118,7 +120,7 @@ class PrintPreviewCodeInBrowser(sublime_plugin.WindowCommand):
             p = os.path.join(sublime.cache_path(), PKG_NAME, 'index.html')
             os.makedirs(p[:p.rindex(os.path.sep)], exist_ok=True)
             with open(p, mode='w', newline='\n') as f:
-                f.write(md_preview)
+                f.write(str(md_preview))
             # TODO: remove pathlib from dependencies.json for py3.8
             import pathlib
             w.run_command('open_url', { 'url': pathlib.Path(p).as_uri() })
@@ -140,6 +142,8 @@ class PrintCopyCodeToClipboard(sublime_plugin.WindowCommand):
         try:
             w = self.window
             v = w.active_view()
+            if v is None:
+                return
             import mdpopups
             l = mdpopups.get_language_from_view(v)
             # only copy first selection if selection(s) and (v.sel()[0].__len__() > 0)
@@ -149,7 +153,7 @@ class PrintCopyCodeToClipboard(sublime_plugin.WindowCommand):
                 src=v.substr(r),
                 language=l
             )
-            sublime.set_clipboard(md_preview)
+            sublime.set_clipboard(str(md_preview))
         except Exception as e:
             print('{}: Exception: {}'.format(PKG_NAME, e))
 
@@ -168,6 +172,8 @@ class PrintPreviewMarkdownInBrowser(sublime_plugin.WindowCommand):
         try:
             w = self.window
             v = w.active_view()
+            if v is None:
+                return
             if not v.settings().get('syntax').startswith('Packages/Markdown/'):
                 return
             import mdpopups
@@ -195,7 +201,10 @@ class PrintPreviewMarkdownInBrowser(sublime_plugin.WindowCommand):
             if VERSION < 4065:
                 return False
             import mdpopups
-            return self.window.active_view().settings().get('syntax').startswith('Packages/Markdown/')
+            v = self.window.active_view()
+            if v is None:
+                return False
+            return v.settings().get('syntax').startswith('Packages/Markdown/')
         except Exception:
             return False
 
@@ -209,6 +218,8 @@ class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
         try:
             w = self.window
             v = w.active_view()
+            if v is None:
+                return
             if not v.settings().get('syntax').startswith('Packages/Markdown/'):
                 return
             import mdpopups
@@ -231,7 +242,10 @@ class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
             if VERSION < 4065:
                 return False
             import mdpopups
-            return self.window.active_view().settings().get('syntax').startswith('Packages/Markdown/')
+            v = self.window.active_view()
+            if v is None:
+                return False
+            return v.settings().get('syntax').startswith('Packages/Markdown/')
         except Exception:
             return False
 

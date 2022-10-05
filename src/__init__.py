@@ -3,3 +3,7 @@
 
 
 from .window_commands import *
+
+
+# def plugin_loaded():
+# def plugin_unloaded():
