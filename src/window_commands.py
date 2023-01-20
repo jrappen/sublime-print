@@ -174,12 +174,12 @@ class PrintPreviewMarkdownInBrowser(sublime_plugin.WindowCommand):
             v = w.active_view()
             if v is None:
                 return
-            if not v.settings().get('syntax').startswith('Packages/Markdown/'):
+            if not str(v.settings().get('syntax')).startswith('Packages/Markdown/'):
                 return
             import mdpopups
             md_preview = mdpopups.md2html(
                 view=v,
-                markup=v.substr(sublime.Region(0, v.size())),
+                markup=mdpopups.format_frontmatter(FRONTMATTER) + v.substr(sublime.Region(0, v.size())),
                 template_vars=None,
                 template_env_options=None
             )
@@ -204,7 +204,7 @@ class PrintPreviewMarkdownInBrowser(sublime_plugin.WindowCommand):
             v = self.window.active_view()
             if v is None:
                 return False
-            return v.settings().get('syntax').startswith('Packages/Markdown/')
+            return str(v.settings().get('syntax')).startswith('Packages/Markdown/')
         except Exception:
             return False
 
@@ -220,7 +220,7 @@ class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
             v = w.active_view()
             if v is None:
                 return
-            if not v.settings().get('syntax').startswith('Packages/Markdown/'):
+            if not str(v.settings().get('syntax')).startswith('Packages/Markdown/'):
                 return
             import mdpopups
             mdpopups.new_html_sheet(
@@ -245,7 +245,7 @@ class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
             v = self.window.active_view()
             if v is None:
                 return False
-            return v.settings().get('syntax').startswith('Packages/Markdown/')
+            return str(v.settings().get('syntax')).startswith('Packages/Markdown/')
         except Exception:
             return False
 
