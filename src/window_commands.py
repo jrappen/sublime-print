@@ -56,27 +56,8 @@ li ul {
     margin: 2px 0 4px;
 }
 '''
-CSS_BROWSER = '''
-div .highlight {
-    background-color: {};
-}
-code .highlight {
-    background-color: {};
-}
-'''
-HTML_TEMPLATE = '''
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-{}
-</style>
-</head>
-<body>
-{}
-</body>
-</html>
-'''
+CSS_BROWSER = 'div .highlight { background-color: {}; } code .highlight { background-color: {}; }'
+HTML_TEMPLATE = '<!DOCTYPE html><html><head><style>{}</style></head><body>{}</body></html>'
 FRONTMATTER = {
     "allow_code_wrap": True,
     "markdown_extensions": [
