@@ -1,6 +1,6 @@
 # Changelog `print`
 
-## [2.3.1](https://github.com/jrappen/sublime-print/compare/2.3.0...2.3.1)
+## [2.3.2](https://github.com/jrappen/sublime-print/compare/2.3.0...2.3.2)
 
 > 2023-01-26
 
