@@ -57,11 +57,14 @@ li ul {
 }
 '''
 CSS_BROWSER = '''
-div .highlight {{
-    background-color: {};
+:root {{
+    --color-bg: {};
 }}
-code .highlight {{
-    background-color: {};
+div.highlight {{
+    background-color: var(--color-bg);
+}}
+code.highlight {{
+    background-color: var(--color-bg);
 }}
 '''
 HTML_TEMPLATE = '''
@@ -129,7 +132,7 @@ class PrintPreviewCodeInBrowser(sublime_plugin.WindowCommand):
                 language=l
             ))
             v_bg_color = v.style().get('background', '#ffffff')
-            CSS = CSS_BROWSER.format(v_bg_color, v_bg_color)
+            CSS = CSS_BROWSER.format(v_bg_color)
             md_preview = HTML_TEMPLATE.format(CSS, md_preview)
             p = os.path.join(sublime.cache_path(), PKG_NAME, 'index.html')
             os.makedirs(p[:p.rindex(os.path.sep)], exist_ok=True)
@@ -194,7 +197,7 @@ class PrintPreviewMdInBrowser(sublime_plugin.WindowCommand):
                 template_env_options=None
             ))
             v_bg_color = v.style().get('background', '#ffffff')
-            CSS = CSS_BROWSER.format(v_bg_color, v_bg_color)
+            CSS = CSS_BROWSER.format(v_bg_color)
             md_preview = HTML_TEMPLATE.format(CSS, md_preview)
             p = os.path.join(sublime.cache_path(), PKG_NAME, 'index.html')
             os.makedirs(p[:p.rindex(os.path.sep)], exist_ok=True)

@@ -1,8 +1,8 @@
 # Changelog `print`
 
-## [2.3.2](https://github.com/jrappen/sublime-print/compare/2.3.0...2.3.2)
+## [2.3.3](https://github.com/jrappen/sublime-print/compare/2.3.0...2.3.3)
 
-> 2023-01-26
+> 2023-01-27
 
 * **Python:** fix typo
 
