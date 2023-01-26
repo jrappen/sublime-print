@@ -1,8 +1,8 @@
 # Changelog `print`
 
-## [2.2.12](https://github.com/jrappen/sublime-print/compare/2.2.0...2.2.12)
+## [2.3.0](https://github.com/jrappen/sublime-print/compare/2.2.0...2.3.0)
 
-> 2023-01-20
+> 2023-01-26
 
 * **Python:** Move cache to package's `sublime.cache_path()` subdir
 * **Commands & Menus:** Update captions
@@ -11,6 +11,7 @@
 * **Documentation:** enhance readability
 * **Python:** fixed CSS for dark mode
 * **Python:** fix print preview md in browser
+* **Python:** fix background-color of output
 
 ## [2.2.0](https://github.com/jrappen/sublime-print/compare/2.1.0...2.2.0)
 

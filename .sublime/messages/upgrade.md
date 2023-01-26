@@ -1,5 +1,5 @@
-# Thank you for upgrading `print` to `v2.2.10`
+# Thank you for upgrading `print` to `v2.3.0`
 
-> 2021-11-08
+> 2023-01-26
 
-* **Python:** fixed CSS for dark mode
+* **Python:** fix background-color of output

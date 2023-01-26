@@ -41,11 +41,11 @@
     },
     {
         "caption": "print: md2html: Preview in Browser",
-        "command": "print_preview_markdown_in_browser"
+        "command": "print_preview_md_in_browser"
     },
     {
         "caption": "print: md2html: Preview in Sublime (read-only mini-HTML)",
-        "command": "print_preview_markdown_via_html_sheet"
+        "command": "print_preview_md_via_html_sheet"
     },
     {
         "caption": "print: code: Preview in Browser",

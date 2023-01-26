@@ -1,14 +1,17 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.3
 # coding: utf-8
 
 
-import sublime
-import sublime_plugin
+import sublime                          # Sublime Text core
+import sublime_plugin                   # Sublime Text core
 
 import os
 
+import mdpopups                         # Sublime Text dependency
+import pathlib                          # Sublime Text dependency
 
-CSS = '''
+
+CSS_SUBLIME = '''
 html {
     background-color: var(--background);
     margin: 16px;
@@ -53,6 +56,27 @@ li ul {
     margin: 2px 0 4px;
 }
 '''
+CSS_BROWSER = '''
+div .highlight {
+    background-color: {};
+}
+code .highlight {
+    background-color: {};
+}
+'''
+HTML_TEMPLATE = '''
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+{}
+</style>
+</head>
+<body>
+{}
+</body>
+</html>
+'''
 FRONTMATTER = {
     "allow_code_wrap": True,
     "markdown_extensions": [
@@ -69,35 +93,23 @@ FRONTMATTER = {
 PKG_NAME = __package__.split('.')[0]
 
 
-def is_mdpopups_installed():
-    try:
-        import mdpopups
-        return True
-    except Exception:
-        return False
-
-
 class PrintOpenDocs(sublime_plugin.WindowCommand):
 
     def run(self, resource_path='docs/en/README.md'):
         try:
             w = self.window
-            import mdpopups
             mdpopups.new_html_sheet(
                 window=w,
                 name='{}/{}'.format(PKG_NAME, resource_path),
                 contents=mdpopups.format_frontmatter(FRONTMATTER) + sublime.load_resource('Packages/{}/{}'.format(PKG_NAME, resource_path)),
                 md=True,
-                css='{}'.format(CSS)
+                css='{}'.format(CSS_SUBLIME)
             )
         except Exception as e:
             print('{}: Exception: {}'.format(PKG_NAME, e))
 
     # def is_enabled(self): return bool
-
-    def is_visible(self):
-        return is_mdpopups_installed()
-
+    # def is_visible(self): return bool
     # def description(self): return str
     # def input(self, args): return CommandInputHandler or None
 
@@ -110,28 +122,26 @@ class PrintPreviewCodeInBrowser(sublime_plugin.WindowCommand):
             v = w.active_view()
             if v is None:
                 return
-            import mdpopups
             l = mdpopups.get_language_from_view(v)
-            md_preview = mdpopups.syntax_highlight(
+            md_preview = str(mdpopups.syntax_highlight(
                 view=v,
                 src=v.substr(sublime.Region(0, v.size())),
                 language=l
-            )
+            ))
+            v_bg_color = v.style().get('background', '#ffffff')
+            CSS = CSS_BROWSER.format(v_bg_color, v_bg_color)
+            md_preview = HTML_TEMPLATE.format(CSS, md_preview)
             p = os.path.join(sublime.cache_path(), PKG_NAME, 'index.html')
             os.makedirs(p[:p.rindex(os.path.sep)], exist_ok=True)
             with open(p, mode='w', newline='\n') as f:
                 f.write(str(md_preview))
             # TODO: remove pathlib from dependencies.json for py3.8
-            import pathlib
             w.run_command('open_url', { 'url': pathlib.Path(p).as_uri() })
         except Exception as e:
             print('{}: Exception: {}'.format(PKG_NAME, e))
 
     # def is_enabled(self): return bool
-
-    def is_visible(self):
-        return is_mdpopups_installed()
-
+    # def is_visible(self): return bool
     # def description(self): return str
     # def input(self, args): return CommandInputHandler or None
 
@@ -144,29 +154,30 @@ class PrintCopyCodeToClipboard(sublime_plugin.WindowCommand):
             v = w.active_view()
             if v is None:
                 return
-            import mdpopups
             l = mdpopups.get_language_from_view(v)
             # only copy first selection if selection(s) and (v.sel()[0].__len__() > 0)
             r = v.sel()[0] or sublime.Region(0, v.size())
-            md_preview = mdpopups.syntax_highlight(
+            md_preview = str(mdpopups.syntax_highlight(
                 view=v,
                 src=v.substr(r),
                 language=l
+            ))
+            v_bg_color = v.style().get('background', '#ffffff')
+            md_preview = md_preview.replace(
+                '<div class="highlight">',
+                '<div class="highlight" style="background-color: {};">'.format(v_bg_color)
             )
             sublime.set_clipboard(str(md_preview))
         except Exception as e:
             print('{}: Exception: {}'.format(PKG_NAME, e))
 
     # def is_enabled(self): return bool
-
-    def is_visible(self):
-        return is_mdpopups_installed()
-
+    # def is_visible(self): return bool
     # def description(self): return str
     # def input(self, args): return CommandInputHandler or None
 
 
-class PrintPreviewMarkdownInBrowser(sublime_plugin.WindowCommand):
+class PrintPreviewMdInBrowser(sublime_plugin.WindowCommand):
 
     def run(self):
         try:
@@ -176,19 +187,20 @@ class PrintPreviewMarkdownInBrowser(sublime_plugin.WindowCommand):
                 return
             if not str(v.settings().get('syntax')).startswith('Packages/Markdown/'):
                 return
-            import mdpopups
-            md_preview = mdpopups.md2html(
+            md_preview = str(mdpopups.md2html(
                 view=v,
                 markup=mdpopups.format_frontmatter(FRONTMATTER) + v.substr(sublime.Region(0, v.size())),
                 template_vars=None,
                 template_env_options=None
-            )
+            ))
+            v_bg_color = v.style().get('background', '#ffffff')
+            CSS = CSS_BROWSER.format(v_bg_color, v_bg_color)
+            md_preview = HTML_TEMPLATE.format(CSS, md_preview)
             p = os.path.join(sublime.cache_path(), PKG_NAME, 'index.html')
             os.makedirs(p[:p.rindex(os.path.sep)], exist_ok=True)
             with open(p, mode='w', newline='\n') as f:
                 f.write(md_preview)
             # TODO: remove pathlib from dependencies.json for py3.8
-            import pathlib
             w.run_command('open_url', { 'url': pathlib.Path(p).as_uri() })
         except Exception as e:
             print('{}: Exception: {}'.format(PKG_NAME, e))
@@ -196,23 +208,16 @@ class PrintPreviewMarkdownInBrowser(sublime_plugin.WindowCommand):
     # def is_enabled(self): return bool
 
     def is_visible(self):
-        try:
-            VERSION = int(sublime.version())
-            if VERSION < 4065:
-                return False
-            import mdpopups
-            v = self.window.active_view()
-            if v is None:
-                return False
-            return str(v.settings().get('syntax')).startswith('Packages/Markdown/')
-        except Exception:
+        v = self.window.active_view()
+        if v is None:
             return False
+        return str(v.settings().get('syntax')).startswith('Packages/Markdown/')
 
     # def description(self): return str
     # def input(self, args): return CommandInputHandler or None
 
 
-class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
+class PrintPreviewMdViaHtmlSheet(sublime_plugin.WindowCommand):
 
     def run(self):
         try:
@@ -222,13 +227,12 @@ class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
                 return
             if not str(v.settings().get('syntax')).startswith('Packages/Markdown/'):
                 return
-            import mdpopups
             mdpopups.new_html_sheet(
                 window=w,
                 name='[print] << PREVIEW >> (read-only)',
                 contents=mdpopups.format_frontmatter(FRONTMATTER) + v.substr(sublime.Region(0, v.size())),
                 md=True,
-                css='{}'.format(CSS)
+                css='{}'.format(CSS_SUBLIME)
             )
             # w.run_command('new_pane')
         except Exception as e:
@@ -237,17 +241,10 @@ class PrintPreviewMarkdownViaHtmlSheet(sublime_plugin.WindowCommand):
     # def is_enabled(self): return bool
 
     def is_visible(self):
-        try:
-            VERSION = int(sublime.version())
-            if VERSION < 4065:
-                return False
-            import mdpopups
-            v = self.window.active_view()
-            if v is None:
-                return False
-            return str(v.settings().get('syntax')).startswith('Packages/Markdown/')
-        except Exception:
+        v = self.window.active_view()
+        if v is None:
             return False
+        return str(v.settings().get('syntax')).startswith('Packages/Markdown/')
 
     # def description(self): return str
     # def input(self, args): return CommandInputHandler or None
