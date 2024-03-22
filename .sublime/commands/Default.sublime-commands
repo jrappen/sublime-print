@@ -1,18 +1,10 @@
 [
     {
-        "caption": "print: Documentation: English",
+        "caption": "print: Documentation (offline)",
         "command": "print_open_docs",
         "args":
         {
-            "resource_path": "docs/en/README.md"
-        }
-    },
-    {
-        "caption": "print: Documentation: German (Deutsch)",
-        "command": "print_open_docs",
-        "args":
-        {
-            "resource_path": "docs/de/README.md"
+            "resource_path": "docs/README.md"
         }
     },
     {

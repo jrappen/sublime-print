@@ -17,12 +17,7 @@
 
 ## Documentation
 
-> Plugin documentation is available via the menu or command palette.
-
-* English:
-  <https://github.com/jrappen/sublime-print/blob/master/docs/en/README.md>
-* German (Deutsch):
-  <https://github.com/jrappen/sublime-print/blob/master/docs/de/README.md>
+> Offline plugin documentation is available via the menu or command palette.
 
 ### Code of conduct
 

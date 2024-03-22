@@ -11,12 +11,7 @@
 
 ## Documentation
 
-> Plugin documentation is available via the menu or command palette.
-
-* English:
-  <https://github.com/jrappen/sublime-print/blob/master/docs/en/README.md>
-* German (Deutsch):
-  <https://github.com/jrappen/sublime-print/blob/master/docs/de/README.md>
+> Offline plugin documentation is available via the menu or command palette.
 
 ### Code of conduct
 
@@ -28,15 +23,17 @@
 
 ## Requirements
 
-!!! panel-warning "Requirements"
+/// admonition | Requirements
+    type: warning
 
-    `print` targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4074`** or later.
+`print` targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4074`** or later.
 
-    * Download [Sublime Text](https://www.sublimetext.com)
-    * Install Package Control via `Tools > Install Package Control` via the menu
-        * Close and reopen Sublime Text after having installed Package Control.
-        * `Package Control` is required, as it installs the dependencies for this package.
-          They are listed in [`./dependencies.json`](dependencies.json)
+* Download [Sublime Text](https://www.sublimetext.com)
+* Install Package Control via `Tools > Install Package Control` via the menu
+    * Close and reopen Sublime Text after having installed Package Control.
+    * `Package Control` is required, as it installs the dependencies for this package.
+      They are listed in [`./dependencies.json`](dependencies.json)
+///
 
 ## Installation
 

@@ -1,5 +1,12 @@
 # Changelog `print`
 
+## [2.3.4](https://github.com/jrappen/sublime-print/compare/2.3.3...2.3.4)
+
+> 2024-03-22
+
+* **Python:** update presentation of docs as html-sheet via `mdpopups`
+* **Docs:** remove German docs
+
 ## [2.3.3](https://github.com/jrappen/sublime-print/compare/2.3.0...2.3.3)
 
 > 2023-01-27

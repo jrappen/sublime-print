@@ -83,8 +83,8 @@ HTML_TEMPLATE = '''
 FRONTMATTER = {
     "allow_code_wrap": True,
     "markdown_extensions": [
-        "markdown.extensions.admonition",
         "markdown.extensions.attr_list",
+        "pymdownx.blocks.admonition",
         "pymdownx.emoji",
         # we do not use pymdownx.magiclink here
         "pymdownx.progressbar",
@@ -98,7 +98,7 @@ PKG_NAME = __package__.split('.')[0]
 
 class PrintOpenDocs(sublime_plugin.WindowCommand):
 
-    def run(self, resource_path='docs/en/README.md'):
+    def run(self, resource_path='docs/README.md'):
         try:
             w = self.window
             mdpopups.new_html_sheet(
@@ -232,7 +232,7 @@ class PrintPreviewMdViaHtmlSheet(sublime_plugin.WindowCommand):
                 return
             mdpopups.new_html_sheet(
                 window=w,
-                name='[print] << PREVIEW >> (read-only)',
+                name='[print] << read-only preview >>',
                 contents=mdpopups.format_frontmatter(FRONTMATTER) + v.substr(sublime.Region(0, v.size())),
                 md=True,
                 css='{}'.format(CSS_SUBLIME)
